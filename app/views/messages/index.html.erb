@@ -1,0 +1,26 @@
+<div class="container text-center" style="border: 1px solid; box-shadow: 5px 10px red;">
+<h1>Messages</h1>
+
+  <div class="well">    
+    <% @messages.each do |message| %>
+        <div class="well" style="background-color: white;" id="messages">
+            <div style="display: inline-block; float: left;" id="messages-table">   
+              <small class="message-email"><%= message.user.email %>: </small> <em <% if message.user==current_user %>style="color: red;"<% end %>> 
+            <strong class="message-content">      
+                  <%= message.content %></em>
+            </strong>     
+            </div>
+            <div style="display: inline-block; float: right;">
+              <% if message.user==current_user %>
+                <td><%= link_to 'Edit', edit_message_path(message), class: "btn btn-default btn-xs" %></td>
+                <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+               <% end %>
+              </div>    
+        </div>      
+    <% end %>
+  </div>      
+<br>
+
+<%= render 'form', message: @message %>
+</div>
+

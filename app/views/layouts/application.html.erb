@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invoke</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render "layouts/header" %>
+    <div class="container">
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-success alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <div class="flash <%= key %>"><%= value %></div>
+        </div>        
+      <% end %>
+    </div>
+        <%= yield %>
+    </div>
+  </body>
+</html>

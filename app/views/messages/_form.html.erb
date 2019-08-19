@@ -1,0 +1,10 @@
+<%= form_with(model: message, local: true, remote: true) do |form| %>
+
+  <div class="form-group">
+    <%= form.text_area :content,  class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Send", class: "btn btn-default" %>
+  </div>
+<% end %>
